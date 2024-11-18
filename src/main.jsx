@@ -9,6 +9,8 @@ import Home from "./components/Home/Home.jsx";
 import {Layouts} from "./components/Layout/Layouts.jsx";
 import About from "./components/Abouts/About.jsx";
 import {Contact} from "./components/Contacts/Contact.jsx";
+import {Login} from "./components/Login/Login.jsx";
+import Profile from "./components/Profile/profile.jsx";
 
 
 const router= createBrowserRouter(
@@ -17,14 +19,17 @@ const router= createBrowserRouter(
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contacts/:id" element={<Contact />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/home" element={<Profile />} />
+
         </Route>
     )
 );
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    {/*<App />*/}`
-    <RouterProvider router={router} />
+    <StrictMode>
+        {/*<App />*/}`
+        <RouterProvider router={router} />
 
-  </StrictMode>,
+    </StrictMode>,
 )
