@@ -11,6 +11,7 @@ import About from "./components/Abouts/About.jsx";
 import {Contact} from "./components/Contacts/Contact.jsx";
 import {Login} from "./components/Login/Login.jsx";
 import Profile from "./components/Profile/profile.jsx";
+import Todo from "./components/Todo/Todo.jsx";
 
 
 const router= createBrowserRouter(
@@ -21,6 +22,7 @@ const router= createBrowserRouter(
             <Route path="/contacts/:id" element={<Contact />} />
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Profile />} />
+            <Route path="/todo" element={<Todo />} />
 
         </Route>
     )
