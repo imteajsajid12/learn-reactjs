@@ -12,6 +12,9 @@ import {Contact} from "./components/Contacts/Contact.jsx";
 import {Login} from "./components/Login/Login.jsx";
 import Profile from "./components/Profile/profile.jsx";
 import Todo from "./components/Todo/Todo.jsx";
+import RTodo from "./components/Redux/Todo/components/AddTodo.jsx";
+import {Provider} from "react-redux";
+import {store} from "./app/Store.js";
 
 
 const router= createBrowserRouter(
@@ -23,15 +26,18 @@ const router= createBrowserRouter(
             <Route path="/login" element={<Login />} />
             <Route path="/home" element={<Profile />} />
             <Route path="/todo" element={<Todo />} />
+            <Route path="/redux/todo" element={<RTodo />} />
 
         </Route>
     )
 );
 
 createRoot(document.getElementById('root')).render(
+    <Provider store={store}>
     <StrictMode>
         {/*<App />*/}`
         <RouterProvider router={router} />
 
-    </StrictMode>,
+    </StrictMode>
+    </Provider>
 )
