@@ -32,12 +32,24 @@ export const TodoSclice = createSlice({
                 }
                 return todo
             })
-        }
+        },
+
+        completeTodo: (state, action) => {
+            state.todos = state.todos.map((todo) => {
+                if (todo.id === action.payload) {
+                    return {
+                        ...todo,
+                        completed: !todo.completed
+                    }
+                }
+                return todo
+            })
+        },
     }
 
 
 })
 
-export const { addTodo, removeTodo, updateTodo } = TodoSclice.actions
+export const { addTodo, removeTodo, updateTodo, completeTodo } = TodoSclice.actions
 
 export default TodoSclice.reducer

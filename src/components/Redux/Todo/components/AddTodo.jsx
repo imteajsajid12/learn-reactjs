@@ -5,13 +5,13 @@ import Todo from "../../../Redux/Todo/Todo.jsx";
 
 
 function AddTodo(props) {
-const  [input , setInput] = React.useState("");
- const dispatch = useDispatch(addTodo( input ));
- const handleSubmit = (e) => {
-     e.preventDefault();
-     dispatch( addTodo( input ));
-      setInput('')
- }
+    const [input, setInput] = React.useState("");
+    const dispatch = useDispatch(addTodo(input));
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispatch(addTodo(input));
+        setInput('')
+    }
     return (
         <>
             <form className="flex">

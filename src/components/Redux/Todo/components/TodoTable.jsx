@@ -1,4 +1,8 @@
 import React from "react";
+import {useSelector , useDispatch} from "react-redux";
+import {removeTodo, addTodo, updateTodo, completeTodo} from "../../../../Feattures/TodoSclice.js";
+
+
 
 
 function TodoItem({ todo }) {
@@ -7,15 +11,21 @@ function TodoItem({ todo }) {
     const [todoMsg, setTodoMsg] = React.useState(todo.todo);
 
 
+    // redux funcilitys
+    const  Todos= useSelector(state => state.todos);
+
+    const dispatch = useDispatch()
+
     // Toggle Completed
     const toggleCompleted = () => {
-        // toggleTodo(todo.id);
+        dispatch(completeTodo(todo.id))
     };
     // Edit Todo
     const editTodo = () => {
-
+         dispatch(updateTodo({id: todo.id, todo: todoMsg}))
         setIsTodoEditable((prev) => !prev);
     };
+
 
 
 
@@ -47,7 +57,7 @@ function TodoItem({ todo }) {
                     if (todo.completed) return;
 
                     if (isTodoEditable) {
-                        editTodo();
+                    editTodo()
                     } else setIsTodoEditable((prev) => !prev);
                 }}
                 disabled={todo.completed}
@@ -57,7 +67,7 @@ function TodoItem({ todo }) {
             {/* Delete Todo Button */}
             <button
                 className="inline-flex w-8 h-8 rounded-lg text-sm border border-black/10 justify-center items-center bg-gray-50 hover:bg-gray-100 shrink-0"
-                onClick={() => (todo.id)}
+                onClick={() =>dispatch(removeTodo(todo.id)) }
             >
                 ❌
             </button>
